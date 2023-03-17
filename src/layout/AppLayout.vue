@@ -14,7 +14,7 @@
         <el-main>
           <APPMan/>
         </el-main>
-        <el-footer>Footer</el-footer>
+        <!-- <el-footer>Footer</el-footer> -->
       </el-container>
     </el-container>
   </div>
@@ -30,7 +30,7 @@ import APPMan from './APPMan.vue';
 
 <style lang="less" scoped>
 
-/deep/.el-header{
+.el-header{
   padding: 0;
   border: 0;
   height: 55px;
