@@ -8,14 +8,13 @@
         </div>
         <div class="main">
 
-          <el-form ref="loginFormRef" :model="loginForm" status-icon :rules="rules" class="login-from">
+          <el-form ref="loginFormRef" :model="loginForm" :rules="rules" class="login-from">
             <el-form-item prop="userName">
               <el-input v-model="loginForm.userName" placeholder="账号" autocomplete="off" class="login-input" />
             </el-form-item>
             <el-form-item prop="passWord">
-              <el-input v-model="loginForm.passWord" type="password" placeholder="密码" autocomplete="off"
-                class="login-input" />
-                <a href="#" class="give-password">找回密码</a>
+              <el-input v-model="loginForm.passWord" type="password" placeholder="密码" autocomplete="off" class="login-input" show-password/>
+              <a href="#" class="give-password">找回密码</a>
             </el-form-item>
             <el-form-item class="login-button-box">
               <el-button type="primary" class="sub-btn" @click="submitForm(loginFormRef)">登录</el-button>
@@ -41,7 +40,9 @@
 import { reactive, ref } from 'vue';
 import { LoginFromType } from '../types/login';
 import type { FormInstance } from 'element-plus';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 
 const loginFormRef = ref<FormInstance>()
 
@@ -66,6 +67,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
   formEl.validate((valid) => {
     if (valid) {
       console.log('submit!', valid, loginForm)
+      router.push({
+        name: 'home',
+      });
     } else {
       console.log('error submit!')
       return false
@@ -83,57 +87,18 @@ const submitForm = (formEl: FormInstance | undefined) => {
   color: var(--light-text-color);
   height: 20px;
   gap: 10px;
+
   :hover {
     color: var(--dark-color);
     text-decoration: underline;
   }
 }
 
-.login-button-box{
+.login-button-box {
   margin-top: 20px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap');
-
 /*用中文替换原先英文字体*/
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-::before::after {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Noto Sans SC', sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.8;
-  color: var(--dark-color);
-  background-color: var(--background-color);
-  user-select: none;
-  -webkit-user-drag: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: transparent;
-}
-
-ul {
-  list-style: none;
-}
-
-h1 {
-  font-size: 3em;
-  font-weight: 700;
-  line-height: normal;
-  color: black;
-}
 
 .site {
   display: flex;
@@ -163,6 +128,29 @@ h1 {
   padding: 70px 0;
 }
 
+
+@keyframes myfirst {
+  0% {
+    background: linear-gradient(to right, var(--primary-color), #c471ed, #f64f59);
+  }
+
+  33% {
+    background: linear-gradient(to right, var(--primary-color), #c471ed, #f64f59);
+    left: 200px;
+    top: 0px;
+  }
+
+  66% {
+    background: linear-gradient(to right, var(--primary-color), #c471ed, #f64f59);
+    left: 200px;
+    top: 200px;
+  }
+
+  100% {
+    background: linear-gradient(to right, var(--primary-color), #c471ed, #f64f59);
+  }
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -173,6 +161,9 @@ h1 {
   background: linear-gradient(to right, var(--primary-color), #c471ed, #f64f59);
   z-index: -1;
   filter: blur(70px);
+  animation: myfirst 100s infinite;
+  -webkit-animation: myfirst 100s infinite;
+  /* Safari 与 Chrome */
 }
 
 .hero a {
@@ -214,10 +205,6 @@ input {
   box-sizing: border-box;
 }
 
-.el-form-item {
-  background-color: var(--light-bg-color);
-}
-
 .login-input {
   height: 60px;
   border-radius: 10px;
@@ -227,6 +214,7 @@ input {
 
 /deep/.el-input__wrapper {
   background-color: var(--light-bg-color);
+  border-radius: 10px;
 }
 
 /deep/input::placeholder {
@@ -347,5 +335,4 @@ input.submit:hover {
 
 .options ul li:nth-child(3) a:hover {
   background-color: #107c10;
-}
-</style>
+}</style>
