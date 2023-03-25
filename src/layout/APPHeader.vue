@@ -43,7 +43,7 @@ const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #F5F6FA;
+  background-color: transparent;
   border-radius: 0 20px 0 0;
 
   .search-input {
@@ -52,7 +52,7 @@ const circleUrl = ref('https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726
 
   /deep/.el-input__wrapper {
     box-shadow: none;
-    background-color: #F5F6FA;
+    background-color: transparent;
   }
 
   .el-dropdown-link:focus-visible {

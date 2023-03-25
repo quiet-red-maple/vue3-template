@@ -37,8 +37,9 @@ import APPMan from './APPMan.vue';
 }
 
 .el-main{
-  background-color: white;
+  background-color: var(--bg-color);
   margin: 20px;
   border-radius: 5px;
+  color: var(--theme-info-text-color);
 }
 </style>

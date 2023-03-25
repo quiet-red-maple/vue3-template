@@ -156,7 +156,8 @@ function changeDark() {
   }
 
   .content {
-
+    height: calc(100vh - 120px);
+    overflow-y: scroll;
     // text-align: center;
     .person-info {
       margin-top: 20px;

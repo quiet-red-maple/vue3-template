@@ -11,7 +11,7 @@
 html,body,#app {
   width:100%;
   height: 100%;
-  background-color: #F5F6FA;
+  background-color: var(--bg-color-right);
 }
 
 * {

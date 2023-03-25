@@ -32,7 +32,7 @@ const navList = reactive([
 
 <style scoped lang="less">
 .app-nav {
-  background-color: white;
+  background-color: var(--bg-color);
   height: 40px;
   line-height: 40px;
   padding-left: 20px;
@@ -43,10 +43,11 @@ const navList = reactive([
     justify-content: flex-start;
     align-items: center;
     li {
-      border-right: 1px solid #F5F5F5;
+      border-right: 1px solid var(--theme-border-color);
       padding-left: 10px;
       padding-right: 10px;
       font-size: 14px;
+      color: var(--theme-text-color);
     }
     .disabled {
         color: #BABCBE;
